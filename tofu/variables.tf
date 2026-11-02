@@ -26,7 +26,7 @@ variable "network_name" {
 
 variable "ssh_public_key_file" {
   type        = string
-  default     = "~/.ssh/id_ed25519.pub"
+  default     = "~/.ssh/id_rsa.pub"
   description = "Public key for the admin (ubuntu) account."
 }
 

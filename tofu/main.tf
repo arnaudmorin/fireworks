@@ -23,14 +23,13 @@ resource "openstack_networking_secgroup_v2" "ssh" {
 }
 
 resource "openstack_networking_secgroup_rule_v2" "ssh" {
-  for_each          = toset(["IPv4", "IPv6"])
   security_group_id = openstack_networking_secgroup_v2.ssh.id
   direction         = "ingress"
-  ethertype         = each.key
+  ethertype         = "IPv4"
   protocol          = "tcp"
   port_range_min    = 22
   port_range_max    = 22
-  remote_ip_prefix  = each.key == "IPv4" ? "0.0.0.0/0" : "::/0"
+  remote_ip_prefix  = "0.0.0.0/0"
 }
 
 resource "openstack_compute_instance_v2" "fireworks" {
