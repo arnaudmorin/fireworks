@@ -1,0 +1,6 @@
+/fireworks
+/dist/
+tofu/.terraform/
+tofu/*.tfstate
+tofu/*.tfstate.*
+tofu/*.tfvars
